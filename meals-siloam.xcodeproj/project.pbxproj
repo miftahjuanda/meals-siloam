@@ -10,17 +10,19 @@
 		B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C052AE285C8009A13D1 /* AppDelegate.swift */; };
 		B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */; };
 		B07D6C0A2AE285C8009A13D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C092AE285C8009A13D1 /* ViewController.swift */; };
-		B07D6C0D2AE285C8009A13D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C0B2AE285C8009A13D1 /* Main.storyboard */; };
 		B07D6C0F2AE285CA009A13D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */; };
 		B07D6C122AE285CA009A13D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C102AE285CA009A13D1 /* LaunchScreen.storyboard */; };
+		DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893071904173776371998C9A /* Pods_meals_siloam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212A2692B7D25644895A1EDD /* Pods-meals-siloam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meals-siloam.debug.xcconfig"; path = "Target Support Files/Pods-meals-siloam/Pods-meals-siloam.debug.xcconfig"; sourceTree = "<group>"; };
+		278D0E6C5C9A864360570B33 /* Pods-meals-siloam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meals-siloam.release.xcconfig"; path = "Target Support Files/Pods-meals-siloam/Pods-meals-siloam.release.xcconfig"; sourceTree = "<group>"; };
+		893071904173776371998C9A /* Pods_meals_siloam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meals_siloam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D6C022AE285C8009A13D1 /* meals-siloam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "meals-siloam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D6C052AE285C8009A13D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B07D6C092AE285C8009A13D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B07D6C0C2AE285C8009A13D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B07D6C112AE285CA009A13D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07D6C132AE285CA009A13D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7081954072B73A4D6EDD5C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				893071904173776371998C9A /* Pods_meals_siloam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B07D6BF92AE285C8009A13D1 = {
 			isa = PBXGroup;
 			children = (
 				B07D6C042AE285C8009A13D1 /* meals-siloam */,
 				B07D6C032AE285C8009A13D1 /* Products */,
+				EB68F5F3798CCFFA56A945ED /* Pods */,
+				A7081954072B73A4D6EDD5C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +69,47 @@
 		B07D6C042AE285C8009A13D1 /* meals-siloam */ = {
 			isa = PBXGroup;
 			children = (
-				B07D6C052AE285C8009A13D1 /* AppDelegate.swift */,
-				B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */,
-				B07D6C092AE285C8009A13D1 /* ViewController.swift */,
-				B07D6C0B2AE285C8009A13D1 /* Main.storyboard */,
-				B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */,
+				B07D6C1B2AE28707009A13D1 /* Scenes */,
+				B07D6C1A2AE286E3009A13D1 /* Resources */,
+				B07D6C192AE28699009A13D1 /* Applications */,
 				B07D6C102AE285CA009A13D1 /* LaunchScreen.storyboard */,
 				B07D6C132AE285CA009A13D1 /* Info.plist */,
 			);
 			path = "meals-siloam";
+			sourceTree = "<group>";
+		};
+		B07D6C192AE28699009A13D1 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C052AE285C8009A13D1 /* AppDelegate.swift */,
+				B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */,
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		B07D6C1A2AE286E3009A13D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B07D6C1B2AE28707009A13D1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C092AE285C8009A13D1 /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EB68F5F3798CCFFA56A945ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				212A2692B7D25644895A1EDD /* Pods-meals-siloam.debug.xcconfig */,
+				278D0E6C5C9A864360570B33 /* Pods-meals-siloam.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +119,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B07D6C162AE285CA009A13D1 /* Build configuration list for PBXNativeTarget "meals-siloam" */;
 			buildPhases = (
+				833E4EEDBD583D366B382434 /* [CP] Check Pods Manifest.lock */,
 				B07D6BFE2AE285C8009A13D1 /* Sources */,
 				B07D6BFF2AE285C8009A13D1 /* Frameworks */,
 				B07D6C002AE285C8009A13D1 /* Resources */,
@@ -127,11 +173,35 @@
 			files = (
 				B07D6C122AE285CA009A13D1 /* LaunchScreen.storyboard in Resources */,
 				B07D6C0F2AE285CA009A13D1 /* Assets.xcassets in Resources */,
-				B07D6C0D2AE285C8009A13D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		833E4EEDBD583D366B382434 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-meals-siloam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B07D6BFE2AE285C8009A13D1 /* Sources */ = {
@@ -147,14 +217,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B07D6C0B2AE285C8009A13D1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B07D6C0C2AE285C8009A13D1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B07D6C102AE285CA009A13D1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,6 +349,7 @@
 		};
 		B07D6C172AE285CA009A13D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 212A2692B7D25644895A1EDD /* Pods-meals-siloam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,7 +360,6 @@
 				INFOPLIST_FILE = "meals-siloam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -315,6 +377,7 @@
 		};
 		B07D6C182AE285CA009A13D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 278D0E6C5C9A864360570B33 /* Pods-meals-siloam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -325,7 +388,6 @@
 				INFOPLIST_FILE = "meals-siloam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
