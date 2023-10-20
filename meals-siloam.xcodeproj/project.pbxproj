@@ -15,6 +15,9 @@
 		B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */; };
 		B07D6C202AE28B12009A13D1 /* InternalColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C1F2AE28B12009A13D1 /* InternalColors.swift */; };
 		B07D6C262AE28DDE009A13D1 /* InternalImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C252AE28DDE009A13D1 /* InternalImages.swift */; };
+		B07D6C282AE28E88009A13D1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C272AE28E88009A13D1 /* Constant.swift */; };
+		B07D6C2B2AE2902A009A13D1 /* MainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C2A2AE2902A009A13D1 /* MainLabel.swift */; };
+		B07D6C2D2AE2996C009A13D1 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C2C2AE2996C009A13D1 /* StackView.swift */; };
 		DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893071904173776371998C9A /* Pods_meals_siloam.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,9 @@
 		B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsViewController.swift; sourceTree = "<group>"; };
 		B07D6C1F2AE28B12009A13D1 /* InternalColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalColors.swift; sourceTree = "<group>"; };
 		B07D6C252AE28DDE009A13D1 /* InternalImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalImages.swift; sourceTree = "<group>"; };
+		B07D6C272AE28E88009A13D1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B07D6C2A2AE2902A009A13D1 /* MainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLabel.swift; sourceTree = "<group>"; };
+		B07D6C2C2AE2996C009A13D1 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 		B07D6C212AE28B29009A13D1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B07D6C292AE29008009A13D1 /* UIComponents */,
 				B07D6C222AE28B2F009A13D1 /* Extensions */,
 			);
 			path = Core;
@@ -132,8 +139,18 @@
 		B07D6C222AE28B2F009A13D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B07D6C272AE28E88009A13D1 /* Constant.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B07D6C292AE29008009A13D1 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C2A2AE2902A009A13D1 /* MainLabel.swift */,
+				B07D6C2C2AE2996C009A13D1 /* StackView.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		EB68F5F3798CCFFA56A945ED /* Pods */ = {
@@ -259,12 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07D6C282AE28E88009A13D1 /* Constant.swift in Sources */,
 				B07D6C202AE28B12009A13D1 /* InternalColors.swift in Sources */,
 				B07D6C0A2AE285C8009A13D1 /* ViewController.swift in Sources */,
 				B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */,
 				B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */,
+				B07D6C2D2AE2996C009A13D1 /* StackView.swift in Sources */,
 				B07D6C262AE28DDE009A13D1 /* InternalImages.swift in Sources */,
 				B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */,
+				B07D6C2B2AE2902A009A13D1 /* MainLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,9 @@ import UIKit
 
 internal extension UIColor {
     ///555557
-    static let ebonyClay = UIColor(named: "AbbeyColor")
+    static let abbeyColor = UIColor(named: "AbbeyColor") ?? .red
     ///291919
-    static let ebony = UIColor(named: "CocoaBrownColor")
+    static let cocoaBrownColor = UIColor(named: "CocoaBrownColor") ?? .red
     ///F9F5EF
-    static let athensGray = UIColor(named: "MerinoColor")
+    static let merinoColor = UIColor(named: "MerinoColor") ?? .red
 }
