@@ -6,5 +6,5 @@ target 'meals-siloam' do
   use_frameworks!
 
   # Pods for meals-siloam
-
+  pod 'Alamofire'
 end

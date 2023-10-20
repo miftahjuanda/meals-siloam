@@ -12,6 +12,7 @@
 		B07D6C0A2AE285C8009A13D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C092AE285C8009A13D1 /* ViewController.swift */; };
 		B07D6C0F2AE285CA009A13D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */; };
 		B07D6C122AE285CA009A13D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C102AE285CA009A13D1 /* LaunchScreen.storyboard */; };
+		B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */; };
 		DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893071904173776371998C9A /* Pods_meals_siloam.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B07D6C112AE285CA009A13D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07D6C132AE285CA009A13D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +100,18 @@
 		B07D6C1B2AE28707009A13D1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B07D6C1C2AE2889C009A13D1 /* Find Meals */,
 				B07D6C092AE285C8009A13D1 /* ViewController.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B07D6C1C2AE2889C009A13D1 /* Find Meals */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */,
+			);
+			path = "Find Meals";
 			sourceTree = "<group>";
 		};
 		EB68F5F3798CCFFA56A945ED /* Pods */ = {
@@ -123,6 +134,7 @@
 				B07D6BFE2AE285C8009A13D1 /* Sources */,
 				B07D6BFF2AE285C8009A13D1 /* Frameworks */,
 				B07D6C002AE285C8009A13D1 /* Resources */,
+				A3D0D14250312DD53D983D8A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,6 +213,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A3D0D14250312DD53D983D8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-meals-siloam/Pods-meals-siloam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-meals-siloam/Pods-meals-siloam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-meals-siloam/Pods-meals-siloam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,6 +239,7 @@
 			files = (
 				B07D6C0A2AE285C8009A13D1 /* ViewController.swift in Sources */,
 				B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */,
+				B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */,
 				B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
