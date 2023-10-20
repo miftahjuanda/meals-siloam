@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = UIColor.white
         
         if let window = window {
-            let mainVC = ViewController()
+            let mainVC = FindMealsViewController()
             let navigationController = UINavigationController.init(rootViewController: mainVC)
             navigationController.navigationBar.tintColor = .black
             window.rootViewController = navigationController

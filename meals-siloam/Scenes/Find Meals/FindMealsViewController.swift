@@ -18,8 +18,6 @@ internal final class FindMealsViewController: UIViewController {
     private func setUIFindMeals() {
         view.backgroundColor = .white
         title = " "
-        
-        
     }
     
 }
