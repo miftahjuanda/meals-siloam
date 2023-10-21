@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 internal final class FindMealsViewController: UIViewController {
     private let qouteLabel = MainLabel("Good food, great life.",
@@ -49,12 +50,25 @@ internal final class FindMealsViewController: UIViewController {
         return collectionView
     }()
     
+    private var cancellables = CancelBag()
+    private var searchMeals = PassthroughSubject<String, Never>()
     private var isSearch = false
+    private var viewModel: FindMealsViewModel
+    
+    init(viewModel: FindMealsViewModel = FindMealsViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUIFindMeals()
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +112,24 @@ internal final class FindMealsViewController: UIViewController {
         ])
     }
     
+    private func bindViewModel() {
+        let input = FindMealsViewModel.Input(searchMeals: searchMeals.eraseToAnyPublisher())
+        let output = viewModel.transform(input, cancellables)
+        
+        output.$resultMeals.receive(on: DispatchQueue.main)
+            .sink{ [weak self] result in
+                guard let self = self else { return }
+                
+                if !result.isEmpty {
+                    
+                }
+                
+                DispatchQueue.global().async {
+                    print("~~cek meals ", result)
+                }
+            }.store(in: cancellables)
+    }
+    
 }
 
 extension FindMealsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -122,8 +154,10 @@ extension FindMealsViewController: UICollectionViewDelegate, UICollectionViewDat
 }
 
 extension FindMealsViewController: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            searchMeals.send(searchText)
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

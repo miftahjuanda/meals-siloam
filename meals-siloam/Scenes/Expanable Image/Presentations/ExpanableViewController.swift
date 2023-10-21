@@ -8,7 +8,6 @@
 import UIKit
 
 internal final class ExpanableViewController: UIViewController {
-    
     private let spacer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +75,6 @@ internal final class ExpanableViewController: UIViewController {
             expanableImage.trailingAnchor.constraint(equalTo: mainScroll.trailingAnchor),
             expanableImage.widthAnchor.constraint(equalTo: mainScroll.widthAnchor)
         ])
-        
     }
     
     @objc func onDoubleTap(gestureRecognizer: UITapGestureRecognizer) {

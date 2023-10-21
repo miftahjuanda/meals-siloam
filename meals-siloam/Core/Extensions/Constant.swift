@@ -11,5 +11,5 @@ internal class Constants {
     static let shared = Constants()
     private init() {}
     
-    let baseURL = URL(string: "https://www.themealdb.com/api/json/v1")!
+    let baseURL = "https://www.themealdb.com/api/json/v1"
 }

@@ -22,6 +22,16 @@
 		B07D6C382AE368EC009A13D1 /* DescriptionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C372AE368EC009A13D1 /* DescriptionComponent.swift */; };
 		B07D6C3A2AE37012009A13D1 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C392AE37012009A13D1 /* ScrollView.swift */; };
 		B07D6C3E2AE37A87009A13D1 /* ExpanableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C3D2AE37A87009A13D1 /* ExpanableViewController.swift */; };
+		B07D6C402AE38AC4009A13D1 /* FindMealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C3F2AE38AC4009A13D1 /* FindMealsViewModel.swift */; };
+		B07D6C432AE38CBD009A13D1 /* SessionClientResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C422AE38CBD009A13D1 /* SessionClientResult.swift */; };
+		B07D6C472AE38EF7009A13D1 /* AlamofireHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C462AE38EF7009A13D1 /* AlamofireHttpClient.swift */; };
+		B07D6C492AE38F64009A13D1 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C482AE38F64009A13D1 /* RestApi.swift */; };
+		B07D6C4B2AE3CC14009A13D1 /* FindMealsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C4A2AE3CC14009A13D1 /* FindMealsUseCase.swift */; };
+		B07D6C502AE3CFBF009A13D1 /* FindMealsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C4F2AE3CFBF009A13D1 /* FindMealsResponse.swift */; };
+		B07D6C522AE3D002009A13D1 /* FindMealsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C512AE3D002009A13D1 /* FindMealsRequest.swift */; };
+		B07D6C552AE3D23C009A13D1 /* FindMealsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C542AE3D23C009A13D1 /* FindMealsEntity.swift */; };
+		B07D6C582AE3DB38009A13D1 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C572AE3DB38009A13D1 /* CancelBag.swift */; };
+		B07D6C5A2AE40DF3009A13D1 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C592AE40DF3009A13D1 /* String+Ext.swift */; };
 		DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893071904173776371998C9A /* Pods_meals_siloam.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +56,16 @@
 		B07D6C372AE368EC009A13D1 /* DescriptionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionComponent.swift; sourceTree = "<group>"; };
 		B07D6C392AE37012009A13D1 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		B07D6C3D2AE37A87009A13D1 /* ExpanableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanableViewController.swift; sourceTree = "<group>"; };
+		B07D6C3F2AE38AC4009A13D1 /* FindMealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsViewModel.swift; sourceTree = "<group>"; };
+		B07D6C422AE38CBD009A13D1 /* SessionClientResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionClientResult.swift; sourceTree = "<group>"; };
+		B07D6C462AE38EF7009A13D1 /* AlamofireHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHttpClient.swift; sourceTree = "<group>"; };
+		B07D6C482AE38F64009A13D1 /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
+		B07D6C4A2AE3CC14009A13D1 /* FindMealsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsUseCase.swift; sourceTree = "<group>"; };
+		B07D6C4F2AE3CFBF009A13D1 /* FindMealsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsResponse.swift; sourceTree = "<group>"; };
+		B07D6C512AE3D002009A13D1 /* FindMealsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsRequest.swift; sourceTree = "<group>"; };
+		B07D6C542AE3D23C009A13D1 /* FindMealsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsEntity.swift; sourceTree = "<group>"; };
+		B07D6C572AE3DB38009A13D1 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
+		B07D6C592AE40DF3009A13D1 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +109,7 @@
 		B07D6C042AE285C8009A13D1 /* meals-siloam */ = {
 			isa = PBXGroup;
 			children = (
+				B07D6C4C2AE3CF94009A13D1 /* Data */,
 				B07D6C212AE28B29009A13D1 /* Core */,
 				B07D6C1B2AE28707009A13D1 /* Scenes */,
 				B07D6C1A2AE286E3009A13D1 /* Resources */,
@@ -131,7 +152,9 @@
 		B07D6C1C2AE2889C009A13D1 /* Find Meals */ = {
 			isa = PBXGroup;
 			children = (
+				B07D6C532AE3D22B009A13D1 /* Entity */,
 				B07D6C2E2AE29CDE009A13D1 /* Presentations */,
+				B07D6C4A2AE3CC14009A13D1 /* FindMealsUseCase.swift */,
 			);
 			path = "Find Meals";
 			sourceTree = "<group>";
@@ -139,6 +162,8 @@
 		B07D6C212AE28B29009A13D1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B07D6C562AE3DB07009A13D1 /* Combine */,
+				B07D6C412AE38BA3009A13D1 /* Networking */,
 				B07D6C292AE29008009A13D1 /* UI Components */,
 				B07D6C222AE28B2F009A13D1 /* Extensions */,
 			);
@@ -149,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B07D6C272AE28E88009A13D1 /* Constant.swift */,
+				B07D6C592AE40DF3009A13D1 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,6 +194,7 @@
 			children = (
 				B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */,
 				B07D6C2F2AE29D2E009A13D1 /* View */,
+				B07D6C3F2AE38AC4009A13D1 /* FindMealsViewModel.swift */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
@@ -219,6 +246,57 @@
 				B07D6C3D2AE37A87009A13D1 /* ExpanableViewController.swift */,
 			);
 			path = Presentations;
+			sourceTree = "<group>";
+		};
+		B07D6C412AE38BA3009A13D1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C422AE38CBD009A13D1 /* SessionClientResult.swift */,
+				B07D6C462AE38EF7009A13D1 /* AlamofireHttpClient.swift */,
+				B07D6C482AE38F64009A13D1 /* RestApi.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B07D6C4C2AE3CF94009A13D1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C4E2AE3CFAC009A13D1 /* Responses */,
+				B07D6C4D2AE3CFA0009A13D1 /* Requests */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B07D6C4D2AE3CFA0009A13D1 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C512AE3D002009A13D1 /* FindMealsRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		B07D6C4E2AE3CFAC009A13D1 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C4F2AE3CFBF009A13D1 /* FindMealsResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		B07D6C532AE3D22B009A13D1 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C542AE3D23C009A13D1 /* FindMealsEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B07D6C562AE3DB07009A13D1 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C572AE3DB38009A13D1 /* CancelBag.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 		EB68F5F3798CCFFA56A945ED /* Pods */ = {
@@ -347,15 +425,25 @@
 				B07D6C282AE28E88009A13D1 /* Constant.swift in Sources */,
 				B07D6C3E2AE37A87009A13D1 /* ExpanableViewController.swift in Sources */,
 				B07D6C202AE28B12009A13D1 /* InternalColors.swift in Sources */,
+				B07D6C472AE38EF7009A13D1 /* AlamofireHttpClient.swift in Sources */,
 				B07D6C362AE363D4009A13D1 /* DetailMealsViewController.swift in Sources */,
 				B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */,
 				B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */,
+				B07D6C5A2AE40DF3009A13D1 /* String+Ext.swift in Sources */,
 				B07D6C3A2AE37012009A13D1 /* ScrollView.swift in Sources */,
+				B07D6C582AE3DB38009A13D1 /* CancelBag.swift in Sources */,
 				B07D6C2D2AE2996C009A13D1 /* StackView.swift in Sources */,
+				B07D6C4B2AE3CC14009A13D1 /* FindMealsUseCase.swift in Sources */,
+				B07D6C432AE38CBD009A13D1 /* SessionClientResult.swift in Sources */,
+				B07D6C502AE3CFBF009A13D1 /* FindMealsResponse.swift in Sources */,
 				B07D6C262AE28DDE009A13D1 /* InternalImages.swift in Sources */,
+				B07D6C552AE3D23C009A13D1 /* FindMealsEntity.swift in Sources */,
+				B07D6C522AE3D002009A13D1 /* FindMealsRequest.swift in Sources */,
 				B07D6C312AE29D66009A13D1 /* ItemMealsCell.swift in Sources */,
 				B07D6C382AE368EC009A13D1 /* DescriptionComponent.swift in Sources */,
 				B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */,
+				B07D6C402AE38AC4009A13D1 /* FindMealsViewModel.swift in Sources */,
+				B07D6C492AE38F64009A13D1 /* RestApi.swift in Sources */,
 				B07D6C2B2AE2902A009A13D1 /* MainLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
