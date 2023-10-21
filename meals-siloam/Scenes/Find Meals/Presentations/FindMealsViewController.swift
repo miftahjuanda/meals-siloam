@@ -53,7 +53,7 @@ internal final class FindMealsViewController: UIViewController {
                                                        for: indexPath) as? ItemMealsCell)!
         cell.addTapGesture { [weak self] in
             guard let self = self else { return }
-            let detailVC = DetailMealsViewController()
+            let detailVC = DetailMealsViewController(idMeal: value.idMeal)
             detailVC.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(detailVC, animated: true)
         }

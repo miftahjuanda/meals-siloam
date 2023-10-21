@@ -31,9 +31,12 @@
 		B07D6C522AE3D002009A13D1 /* FindMealsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C512AE3D002009A13D1 /* FindMealsRequest.swift */; };
 		B07D6C552AE3D23C009A13D1 /* FindMealsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C542AE3D23C009A13D1 /* FindMealsEntity.swift */; };
 		B07D6C582AE3DB38009A13D1 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C572AE3DB38009A13D1 /* CancelBag.swift */; };
-		B07D6C5A2AE40DF3009A13D1 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C592AE40DF3009A13D1 /* String+Ext.swift */; };
 		B0F13E842AE415F900BA0F63 /* FindMealViewItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F13E832AE415F900BA0F63 /* FindMealViewItems.swift */; };
 		B0F13E862AE41D0400BA0F63 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F13E852AE41D0400BA0F63 /* View+Ext.swift */; };
+		B0F13E8B2AE41F6600BA0F63 /* DetailMealsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F13E8A2AE41F6600BA0F63 /* DetailMealsEntity.swift */; };
+		B0F13E8D2AE4213100BA0F63 /* DetailMealsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F13E8C2AE4213100BA0F63 /* DetailMealsRequest.swift */; };
+		B0F13E8F2AE4220800BA0F63 /* DetailMealsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F13E8E2AE4220800BA0F63 /* DetailMealsUseCase.swift */; };
+		B0F13E912AE422A500BA0F63 /* DetailMealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F13E902AE422A500BA0F63 /* DetailMealsViewModel.swift */; };
 		DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893071904173776371998C9A /* Pods_meals_siloam.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,9 +70,12 @@
 		B07D6C512AE3D002009A13D1 /* FindMealsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsRequest.swift; sourceTree = "<group>"; };
 		B07D6C542AE3D23C009A13D1 /* FindMealsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealsEntity.swift; sourceTree = "<group>"; };
 		B07D6C572AE3DB38009A13D1 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
-		B07D6C592AE40DF3009A13D1 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		B0F13E832AE415F900BA0F63 /* FindMealViewItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMealViewItems.swift; sourceTree = "<group>"; };
 		B0F13E852AE41D0400BA0F63 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		B0F13E8A2AE41F6600BA0F63 /* DetailMealsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealsEntity.swift; sourceTree = "<group>"; };
+		B0F13E8C2AE4213100BA0F63 /* DetailMealsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealsRequest.swift; sourceTree = "<group>"; };
+		B0F13E8E2AE4220800BA0F63 /* DetailMealsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealsUseCase.swift; sourceTree = "<group>"; };
+		B0F13E902AE422A500BA0F63 /* DetailMealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				B07D6C272AE28E88009A13D1 /* Constant.swift */,
-				B07D6C592AE40DF3009A13D1 /* String+Ext.swift */,
 				B0F13E852AE41D0400BA0F63 /* View+Ext.swift */,
 			);
 			path = Extensions;
@@ -215,6 +220,7 @@
 		B07D6C322AE3638A009A13D1 /* Detail Meals */ = {
 			isa = PBXGroup;
 			children = (
+				B0F13E892AE41F4400BA0F63 /* Entity */,
 				B07D6C332AE3639F009A13D1 /* Presentations */,
 			);
 			path = "Detail Meals";
@@ -225,6 +231,8 @@
 			children = (
 				B07D6C342AE363AC009A13D1 /* View */,
 				B07D6C352AE363D4009A13D1 /* DetailMealsViewController.swift */,
+				B0F13E8E2AE4220800BA0F63 /* DetailMealsUseCase.swift */,
+				B0F13E902AE422A500BA0F63 /* DetailMealsViewModel.swift */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				B07D6C512AE3D002009A13D1 /* FindMealsRequest.swift */,
+				B0F13E8C2AE4213100BA0F63 /* DetailMealsRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -303,6 +312,14 @@
 				B07D6C572AE3DB38009A13D1 /* CancelBag.swift */,
 			);
 			path = Combine;
+			sourceTree = "<group>";
+		};
+		B0F13E892AE41F4400BA0F63 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B0F13E8A2AE41F6600BA0F63 /* DetailMealsEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		EB68F5F3798CCFFA56A945ED /* Pods */ = {
@@ -436,21 +453,24 @@
 				B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */,
 				B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */,
 				B0F13E862AE41D0400BA0F63 /* View+Ext.swift in Sources */,
-				B07D6C5A2AE40DF3009A13D1 /* String+Ext.swift in Sources */,
 				B07D6C3A2AE37012009A13D1 /* ScrollView.swift in Sources */,
 				B07D6C582AE3DB38009A13D1 /* CancelBag.swift in Sources */,
 				B07D6C2D2AE2996C009A13D1 /* StackView.swift in Sources */,
 				B07D6C4B2AE3CC14009A13D1 /* FindMealsUseCase.swift in Sources */,
 				B07D6C432AE38CBD009A13D1 /* SessionClientResult.swift in Sources */,
+				B0F13E8D2AE4213100BA0F63 /* DetailMealsRequest.swift in Sources */,
 				B07D6C502AE3CFBF009A13D1 /* FindMealsResponse.swift in Sources */,
 				B07D6C262AE28DDE009A13D1 /* InternalImages.swift in Sources */,
 				B07D6C552AE3D23C009A13D1 /* FindMealsEntity.swift in Sources */,
 				B07D6C522AE3D002009A13D1 /* FindMealsRequest.swift in Sources */,
+				B0F13E8B2AE41F6600BA0F63 /* DetailMealsEntity.swift in Sources */,
 				B07D6C312AE29D66009A13D1 /* ItemMealsCell.swift in Sources */,
 				B07D6C382AE368EC009A13D1 /* DescriptionComponent.swift in Sources */,
 				B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */,
 				B07D6C402AE38AC4009A13D1 /* FindMealsViewModel.swift in Sources */,
+				B0F13E912AE422A500BA0F63 /* DetailMealsViewModel.swift in Sources */,
 				B07D6C492AE38F64009A13D1 /* RestApi.swift in Sources */,
+				B0F13E8F2AE4220800BA0F63 /* DetailMealsUseCase.swift in Sources */,
 				B07D6C2B2AE2902A009A13D1 /* MainLabel.swift in Sources */,
 				B0F13E842AE415F900BA0F63 /* FindMealViewItems.swift in Sources */,
 			);

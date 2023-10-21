@@ -31,9 +31,20 @@ internal struct FindMeal: Codable {
 }
 
 extension FindMealsResponse {
-    func toDomain() -> FindMealsEntity {
+    func toDomainFindMeals() -> FindMealsEntity {
         let meals = self.meals?.map { res in
             return Meal(idMeal: res.idMeal ?? "0",
+                        nameMeal: res.strMeal ?? "-",
+                        area: res.strArea ?? "-",
+                        mealThumb: res.strMealThumb ?? "-")
+        } ?? []
+        
+        return FindMealsEntity(meals: meals)
+    }
+    
+    func toDomainDetailMeals() -> DetailMealsEntity {
+        let meals = self.meals?.map { res in
+            return DetailMeal(idMeal: res.idMeal ?? "0",
                         nameMeal: res.strMeal ?? "-",
                         categoryMeal: res.strCategory ?? "-",
                         area: res.strArea ?? "-",
@@ -81,7 +92,7 @@ extension FindMealsResponse {
                                              measure: res.strMeasure20 ?? "-"),
                         linkYoutube: res.strYoutube ?? "-")
         } ?? []
-        return FindMealsEntity(meals: meals)
+        return DetailMealsEntity(meals: meals)
     }
 }
 

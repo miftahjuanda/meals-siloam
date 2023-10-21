@@ -21,6 +21,6 @@ internal struct FindMealsRequest: RestApi {
     
     func map(_ data: Data) throws -> FindMealsEntity {
         let data = try JSONDecoder().decode(FindMealsResponse.self, from: data)
-        return data.toDomain()
+        return data.toDomainFindMeals()
     }
 }

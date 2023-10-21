@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 internal final class DetailMealsViewController: UIViewController {
     private let titleLabel = MainLabel("Teriyaki Chicken",
@@ -29,11 +30,32 @@ internal final class DetailMealsViewController: UIViewController {
         image.addGestureRecognizer(tapRecognizer)
         return image
     }()
+    private let category = DescriptionComponent()
+    private let ingredients = DescriptionComponent()
+    private let instructions = DescriptionComponent()
+    
+    private var viewModel: DetailMealsViewModel
+    private var idMeal: String
+    private var cancellables = CancelBag()
+    private var eventIdMeal = PassthroughSubject<String, Never>()
+    
+    init(idMeal: String, viewModel: DetailMealsViewModel = DetailMealsViewModel()) {
+        self.viewModel = viewModel
+        self.idMeal = idMeal
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUiDetail()
+        bindViewModel()
+        
+        eventIdMeal.send(idMeal)
     }
     
     private func setUiDetail() {
@@ -41,14 +63,9 @@ internal final class DetailMealsViewController: UIViewController {
         title = "Detail Info"
         
         let descriptionVStack = StackView {
-            DescriptionComponent()
-            DescriptionComponent()
-            DescriptionComponent()
-            DescriptionComponent()
-            DescriptionComponent()
-            DescriptionComponent()
-            DescriptionComponent()
-            DescriptionComponent()
+            category
+            ingredients
+            instructions
         }.setSpacing(10)
         
         let mainScroll = ScrollView(contentStack: StackView(){
@@ -73,6 +90,31 @@ internal final class DetailMealsViewController: UIViewController {
             mainScroll.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             mainScroll.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func bindViewModel() {
+        let input = DetailMealsViewModel.Input(idMeal: eventIdMeal.eraseToAnyPublisher())
+        let output = viewModel.transform(input, cancellables)
+        
+        output.$detailMeals.receive(on: DispatchQueue.main)
+            .sink{ [weak self] result in
+                guard let self = self else { return }
+                
+                if let data = result {
+                    bindData(data: data)
+                }
+            }.store(in: cancellables)
+    }
+    
+    private func bindData(data: DetailMeal) {
+        titleLabel.text = data.nameMeal
+        subTitleLabel.text = data.area
+        category.setData(title: "Meal category :",
+                         description: data.categoryMeal)
+        ingredients.setData(title: "Ingredients :",
+                            description: data.Ingredient)
+        instructions.setData(title: "Instructions :",
+                             description: data.instructions)
     }
     
     @objc private func onTapImage(_ gestureRecognizer: UITapGestureRecognizer) {

@@ -14,11 +14,8 @@ internal struct FindMealsEntity: Codable {
 internal struct Meal: Codable, Hashable {
     let idMeal: String
     let nameMeal: String
-    let categoryMeal: String
-    let area, instructions: String
+    let area: String
     let mealThumb: String
-    let Ingredient: String
-    let linkYoutube: String
     var uuid = UUID()
     
     static func ==(lhs: Meal, rhs: Meal) -> Bool {

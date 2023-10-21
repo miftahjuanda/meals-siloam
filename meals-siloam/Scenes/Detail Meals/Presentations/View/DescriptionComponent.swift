@@ -8,12 +8,10 @@
 import UIKit
 
 internal class DescriptionComponent: UIView {
-    private let titleLabel = MainLabel("Ingredients :",
-                                       textColor: .cocoaBrownColor,
+    private let titleLabel = MainLabel(textColor: .cocoaBrownColor,
                                        font: .systemFont(ofSize: 14,
                                                          weight: .medium))
-    private let descriptionLabel = MainLabel("Soy sauce 3/4 cup, water 1/2 cup, soy sauce 3/4 cup, water 1/2 cup, Soy sauce 3/4 cup, water 1, soy sauce 3/4 cup, water 1/2 cup, soy sauce 3/4 cup, water 1/2 cup, Soy sauce 3/4 cup, water 1.",
-                                             textColor: .cocoaBrownColor,
+    private let descriptionLabel = MainLabel(textColor: .cocoaBrownColor,
                                              font: .systemFont(ofSize: 12,
                                                                weight: .regular))
     
@@ -21,6 +19,11 @@ internal class DescriptionComponent: UIView {
         super.init(frame: .zero)
         
         setUIDescription()
+    }
+    
+    func setData(title: String, description: String) {
+        titleLabel.text = title
+        descriptionLabel.text = description
     }
     
     private func setUIDescription() {
