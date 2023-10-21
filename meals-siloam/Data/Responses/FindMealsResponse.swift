@@ -85,11 +85,11 @@ extension FindMealsResponse {
     }
 }
 
-//fileprivate func ingredientAndMeasure(ingredient: String?, measure: String?) -> String {
-//    guard let ingredient = ingredient, let measure = measure else { return "" }
-//    if ingredient.trimmingCharacters(in: .whitespaces).isEmpty && measure.trimmingCharacters(in: .whitespaces).isEmpty {
-//        return ""
-//    } else {
-//        return "\(ingredient) - \(measure), "
-//    }
-//}
+fileprivate func ingredientAndMeasure(ingredient: String?, measure: String?) -> String {
+    guard let ingredient = ingredient, let measure = measure else { return "" }
+    if ingredient.trimmingCharacters(in: .whitespaces).isEmpty && measure.trimmingCharacters(in: .whitespaces).isEmpty {
+        return ""
+    } else {
+        return "\(ingredient) - \(measure), "
+    }
+}

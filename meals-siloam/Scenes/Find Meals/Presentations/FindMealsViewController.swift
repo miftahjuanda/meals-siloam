@@ -43,12 +43,23 @@ internal final class FindMealsViewController: UIViewController {
         collectionView.register(ItemMealsCell.self,
                                 forCellWithReuseIdentifier: ItemMealsCell.id)
         collectionView.backgroundColor = .clear
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    
+    private lazy var dataSource = UICollectionViewDiffableDataSource<String, Meal>(collectionView: mealsCollectionView) { [weak self] (collectionView, indexPath, value) -> UICollectionViewCell? in
+        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: ItemMealsCell.id,
+                                                       for: indexPath) as? ItemMealsCell)!
+        cell.addTapGesture { [weak self] in
+            guard let self = self else { return }
+            let detailVC = DetailMealsViewController()
+            detailVC.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        cell.setData(value)
+        return cell
+    }
     
     private var cancellables = CancelBag()
     private var searchMeals = PassthroughSubject<String, Never>()
@@ -121,35 +132,17 @@ internal final class FindMealsViewController: UIViewController {
                 guard let self = self else { return }
                 
                 if !result.isEmpty {
-                    
-                }
-                
-                DispatchQueue.global().async {
-                    print("~~cek meals ", result)
+                    self.applySnapshot(items: result)
                 }
             }.store(in: cancellables)
     }
     
-}
-
-extension FindMealsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemMealsCell.id,
-                                                         for: indexPath) as? ItemMealsCell {
-            return cell
-        } else {
-            return UICollectionViewCell()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = DetailMealsViewController()
-        detailVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(detailVC, animated: true)
+    private func applySnapshot(items: [Meal], animatingDifferences: Bool = true) {
+        var snapshot: NSDiffableDataSourceSnapshot<String, Meal> = .init()
+        snapshot.appendSections([""])
+        snapshot.appendItems(items)
+        
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
 

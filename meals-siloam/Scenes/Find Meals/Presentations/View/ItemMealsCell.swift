@@ -30,19 +30,18 @@ internal final class ItemMealsCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setuiCell()
         
-        setData()
+        setuiCell()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData() {
+    func setData(_ data: Meal) {
         image.image = .dataEmptyIcon
-        titlelabel.text = "titlelabel.text"
-        subTitlelabel.text = "subTitlelabel.text"
+        titlelabel.text = data.nameMeal
+        subTitlelabel.text = data.area
     }
     
     private func setuiCell() {
