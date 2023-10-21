@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C052AE285C8009A13D1 /* AppDelegate.swift */; };
 		B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */; };
-		B07D6C0A2AE285C8009A13D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C092AE285C8009A13D1 /* ViewController.swift */; };
 		B07D6C0F2AE285CA009A13D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */; };
 		B07D6C122AE285CA009A13D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C102AE285CA009A13D1 /* LaunchScreen.storyboard */; };
 		B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */; };
@@ -18,6 +17,7 @@
 		B07D6C282AE28E88009A13D1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C272AE28E88009A13D1 /* Constant.swift */; };
 		B07D6C2B2AE2902A009A13D1 /* MainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C2A2AE2902A009A13D1 /* MainLabel.swift */; };
 		B07D6C2D2AE2996C009A13D1 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C2C2AE2996C009A13D1 /* StackView.swift */; };
+		B07D6C312AE29D66009A13D1 /* ItemMealsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C302AE29D66009A13D1 /* ItemMealsCell.swift */; };
 		DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893071904173776371998C9A /* Pods_meals_siloam.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,6 @@
 		B07D6C022AE285C8009A13D1 /* meals-siloam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "meals-siloam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D6C052AE285C8009A13D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B07D6C092AE285C8009A13D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B07D6C112AE285CA009A13D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07D6C132AE285CA009A13D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		B07D6C272AE28E88009A13D1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B07D6C2A2AE2902A009A13D1 /* MainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLabel.swift; sourceTree = "<group>"; };
 		B07D6C2C2AE2996C009A13D1 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		B07D6C302AE29D66009A13D1 /* ItemMealsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMealsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				B07D6C1C2AE2889C009A13D1 /* Find Meals */,
-				B07D6C092AE285C8009A13D1 /* ViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -122,7 +121,7 @@
 		B07D6C1C2AE2889C009A13D1 /* Find Meals */ = {
 			isa = PBXGroup;
 			children = (
-				B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */,
+				B07D6C2E2AE29CDE009A13D1 /* Presentations */,
 			);
 			path = "Find Meals";
 			sourceTree = "<group>";
@@ -130,7 +129,7 @@
 		B07D6C212AE28B29009A13D1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B07D6C292AE29008009A13D1 /* UIComponents */,
+				B07D6C292AE29008009A13D1 /* UI Components */,
 				B07D6C222AE28B2F009A13D1 /* Extensions */,
 			);
 			path = Core;
@@ -144,13 +143,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B07D6C292AE29008009A13D1 /* UIComponents */ = {
+		B07D6C292AE29008009A13D1 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
 				B07D6C2A2AE2902A009A13D1 /* MainLabel.swift */,
 				B07D6C2C2AE2996C009A13D1 /* StackView.swift */,
 			);
-			path = UIComponents;
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		B07D6C2E2AE29CDE009A13D1 /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */,
+				B07D6C2F2AE29D2E009A13D1 /* View */,
+			);
+			path = Presentations;
+			sourceTree = "<group>";
+		};
+		B07D6C2F2AE29D2E009A13D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C302AE29D66009A13D1 /* ItemMealsCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EB68F5F3798CCFFA56A945ED /* Pods */ = {
@@ -278,11 +294,11 @@
 			files = (
 				B07D6C282AE28E88009A13D1 /* Constant.swift in Sources */,
 				B07D6C202AE28B12009A13D1 /* InternalColors.swift in Sources */,
-				B07D6C0A2AE285C8009A13D1 /* ViewController.swift in Sources */,
 				B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */,
 				B07D6C1E2AE288E3009A13D1 /* FindMealsViewController.swift in Sources */,
 				B07D6C2D2AE2996C009A13D1 /* StackView.swift in Sources */,
 				B07D6C262AE28DDE009A13D1 /* InternalImages.swift in Sources */,
+				B07D6C312AE29D66009A13D1 /* ItemMealsCell.swift in Sources */,
 				B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */,
 				B07D6C2B2AE2902A009A13D1 /* MainLabel.swift in Sources */,
 			);
@@ -339,7 +355,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -402,7 +418,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -430,6 +446,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BTP3P5U2W5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "meals-siloam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -458,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BTP3P5U2W5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "meals-siloam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

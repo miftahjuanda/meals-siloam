@@ -57,7 +57,6 @@ extension StackView: StackModifier {
     func setPadding(_ padding: UIEdgeInsets) -> StackView {
         self.isLayoutMarginsRelativeArrangement = true
         self.layoutMargins = padding
-        
         return self
     }
 }
