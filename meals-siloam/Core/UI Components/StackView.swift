@@ -14,6 +14,7 @@ internal protocol StackModifier {
     func setDistribution(_ distribution: UIStackView.Distribution) -> Stack
     func setSpacing(_ spacing: CGFloat) -> Stack
     func setPadding(_ padding: UIEdgeInsets) -> Stack
+    func customSpacing(_ spacing: CGFloat, after: Int) -> Stack
 }
 
 @resultBuilder
@@ -31,6 +32,7 @@ internal final class StackView: UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = axisType
         views().forEach{ addArrangedSubview($0) }
+        self.layoutIfNeeded()
     }
     
     required init(coder: NSCoder) {
@@ -39,6 +41,11 @@ internal final class StackView: UIStackView {
 }
 
 extension StackView: StackModifier {
+    func customSpacing(_ spacing: CGFloat, after: Int) -> StackView {
+        self.setCustomSpacing(spacing, after: self.subviews[after])
+        return self
+    }
+    
     func setAlignment(_ alignment: UIStackView.Alignment) -> StackView {
         self.alignment = alignment
         return self

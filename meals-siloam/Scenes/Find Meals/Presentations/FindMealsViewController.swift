@@ -59,8 +59,12 @@ internal final class FindMealsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func setUIFindMeals() {
@@ -108,6 +112,12 @@ extension FindMealsViewController: UICollectionViewDelegate, UICollectionViewDat
         } else {
             return UICollectionViewCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailMealsViewController()
+        detailVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
