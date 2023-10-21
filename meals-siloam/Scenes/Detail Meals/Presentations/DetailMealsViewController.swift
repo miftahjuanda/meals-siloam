@@ -38,6 +38,7 @@ internal final class DetailMealsViewController: UIViewController {
     private var idMeal: String
     private var cancellables = CancelBag()
     private var eventIdMeal = PassthroughSubject<String, Never>()
+    private var eventImage = PassthroughSubject<String, Never>()
     
     init(idMeal: String, viewModel: DetailMealsViewModel = DetailMealsViewModel()) {
         self.viewModel = viewModel
@@ -93,7 +94,8 @@ internal final class DetailMealsViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        let input = DetailMealsViewModel.Input(idMeal: eventIdMeal.eraseToAnyPublisher())
+        let input = DetailMealsViewModel.Input(idMeal: eventIdMeal.eraseToAnyPublisher(),
+                                               image: eventImage.eraseToAnyPublisher())
         let output = viewModel.transform(input, cancellables)
         
         output.$detailMeals.receive(on: DispatchQueue.main)
@@ -104,9 +106,19 @@ internal final class DetailMealsViewController: UIViewController {
                     bindData(data: data)
                 }
             }.store(in: cancellables)
+        
+        output.$image.receive(on: DispatchQueue.main)
+            .sink{ [weak self] result in
+                guard let self = self else { return }
+                
+                if let data = result {
+                    mealImage.image = data
+                }
+            }.store(in: cancellables)
     }
     
     private func bindData(data: DetailMeal) {
+        eventImage.send(data.mealThumb)
         titleLabel.text = data.nameMeal
         subTitleLabel.text = data.area
         category.setData(title: "Meal category :",
@@ -118,7 +130,7 @@ internal final class DetailMealsViewController: UIViewController {
     }
     
     @objc private func onTapImage(_ gestureRecognizer: UITapGestureRecognizer) {
-        let expandVC = ExpanableViewController()
+        let expandVC = ExpanableViewController(image: mealImage.image ?? .dataEmptyIcon)
         navigationController?.present(expandVC, animated: true)
     }
 }

@@ -203,8 +203,8 @@
 			children = (
 				B07D6C4A2AE3CC14009A13D1 /* FindMealsUseCase.swift */,
 				B07D6C1D2AE288E3009A13D1 /* FindMealsViewController.swift */,
-				B07D6C2F2AE29D2E009A13D1 /* View */,
 				B07D6C3F2AE38AC4009A13D1 /* FindMealsViewModel.swift */,
+				B07D6C2F2AE29D2E009A13D1 /* View */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";

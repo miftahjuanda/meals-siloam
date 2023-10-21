@@ -5,7 +5,7 @@
 //  Created by Miftah Juanda Batubara on 21/10/23.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 internal final class DetailMealsViewModel {
@@ -17,10 +17,12 @@ internal final class DetailMealsViewModel {
     
     internal struct Input {
         let idMeal: AnyPublisher<String, Never>
+        let image: AnyPublisher<String, Never>
     }
     
     internal class Output: ObservableObject {
-        @Published var detailMeals: DetailMeal? // = DetailMeal()
+        @Published var image: UIImage?
+        @Published var detailMeals: DetailMeal?
         @Published var resultError: Error?
     }
     
@@ -37,9 +39,25 @@ internal final class DetailMealsViewModel {
             }.sink(receiveValue: { result in
                 switch result {
                 case .success(let meals):
-//                    if let data = meals.meals.first {
                     output.detailMeals = meals.meals.first
-//                    }
+                    break
+                case .failure(let err):
+                    output.resultError = err
+                    break
+                }
+            }).store(in: cancellables)
+        
+        input.image
+            .receive(on: DispatchQueue.global())
+            .flatMap{ url in
+                self.useCase.loadImage(url: url)
+                    .map{ Result.success($0) }
+                    .catch{ Just(Result.failure($0)) }
+                    .eraseToAnyPublisher()
+            }.sink(receiveValue: { result in
+                switch result {
+                case .success(let img):
+                    output.image = img
                     break
                 case .failure(let err):
                     output.resultError = err

@@ -43,6 +43,15 @@ internal final class ExpanableViewController: UIViewController {
         return image
     }()
     
+    init(image: UIImage) {
+        self.expanableImage.image = image
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

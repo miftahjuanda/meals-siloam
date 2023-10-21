@@ -6,9 +6,11 @@
 //
 
 import Combine
+import UIKit
 
 protocol DetailMealsUseCaseProtocol {
     func detailMeals(idMeal: String) -> AnyPublisher<DetailMealsEntity, Error>
+    func loadImage(url: String) -> AnyPublisher<UIImage?, Error>
 }
 
 internal class DetailMealsUseCase {
@@ -26,4 +28,23 @@ extension DetailMealsUseCase: DetailMealsUseCaseProtocol {
         
         return request
     }
+    
+    func loadImage(url: String) -> AnyPublisher<UIImage?, Error> {
+        let request = httpCLient.loadImage(from: url)
+        return request
+    }
+}
+
+
+final class Scheduler {
+
+    static var backgroundWorkScheduler: OperationQueue = {
+        let operationQueue = OperationQueue()
+        operationQueue.maxConcurrentOperationCount = 5
+        operationQueue.qualityOfService = QualityOfService.userInitiated
+        return operationQueue
+    }()
+
+    static let mainScheduler = RunLoop.main
+
 }
