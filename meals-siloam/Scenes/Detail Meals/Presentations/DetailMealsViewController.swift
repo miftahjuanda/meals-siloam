@@ -16,13 +16,17 @@ internal final class DetailMealsViewController: UIViewController {
                                           textColor: .abbeyColor,
                                           font: .systemFont(ofSize: 12,
                                                             weight: .medium))
-    private let mealImage: UIImageView = {
+    private lazy var mealImage: UIImageView = {
+        let tapRecognizer = UITapGestureRecognizer(target: self,
+                                                   action: #selector(onTapImage))
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.layer.cornerRadius = 8
         image.image = .dataEmptyIcon
         image.contentMode = .scaleAspectFit
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(tapRecognizer)
         return image
     }()
     
@@ -69,5 +73,10 @@ internal final class DetailMealsViewController: UIViewController {
             mainScroll.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             mainScroll.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    @objc private func onTapImage(_ gestureRecognizer: UITapGestureRecognizer) {
+        let expandVC = ExpanableViewController()
+        navigationController?.present(expandVC, animated: true)
     }
 }

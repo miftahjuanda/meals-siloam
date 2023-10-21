@@ -21,6 +21,7 @@
 		B07D6C362AE363D4009A13D1 /* DetailMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C352AE363D4009A13D1 /* DetailMealsViewController.swift */; };
 		B07D6C382AE368EC009A13D1 /* DescriptionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C372AE368EC009A13D1 /* DescriptionComponent.swift */; };
 		B07D6C3A2AE37012009A13D1 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C392AE37012009A13D1 /* ScrollView.swift */; };
+		B07D6C3E2AE37A87009A13D1 /* ExpanableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C3D2AE37A87009A13D1 /* ExpanableViewController.swift */; };
 		DEFEAF78232F4A2160577727 /* Pods_meals_siloam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893071904173776371998C9A /* Pods_meals_siloam.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		B07D6C352AE363D4009A13D1 /* DetailMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealsViewController.swift; sourceTree = "<group>"; };
 		B07D6C372AE368EC009A13D1 /* DescriptionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionComponent.swift; sourceTree = "<group>"; };
 		B07D6C392AE37012009A13D1 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		B07D6C3D2AE37A87009A13D1 /* ExpanableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		B07D6C1B2AE28707009A13D1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B07D6C3B2AE3798E009A13D1 /* Expanable Image */,
 				B07D6C322AE3638A009A13D1 /* Detail Meals */,
 				B07D6C1C2AE2889C009A13D1 /* Find Meals */,
 			);
@@ -200,6 +203,22 @@
 				B07D6C372AE368EC009A13D1 /* DescriptionComponent.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B07D6C3B2AE3798E009A13D1 /* Expanable Image */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C3C2AE37A71009A13D1 /* Presentations */,
+			);
+			path = "Expanable Image";
+			sourceTree = "<group>";
+		};
+		B07D6C3C2AE37A71009A13D1 /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				B07D6C3D2AE37A87009A13D1 /* ExpanableViewController.swift */,
+			);
+			path = Presentations;
 			sourceTree = "<group>";
 		};
 		EB68F5F3798CCFFA56A945ED /* Pods */ = {
@@ -326,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07D6C282AE28E88009A13D1 /* Constant.swift in Sources */,
+				B07D6C3E2AE37A87009A13D1 /* ExpanableViewController.swift in Sources */,
 				B07D6C202AE28B12009A13D1 /* InternalColors.swift in Sources */,
 				B07D6C362AE363D4009A13D1 /* DetailMealsViewController.swift in Sources */,
 				B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */,
