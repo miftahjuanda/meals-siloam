@@ -33,18 +33,15 @@ internal final class ExpanableViewController: UIViewController {
         return scroll
     }()
     
-    private let expanableImage: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.clipsToBounds = true
-        image.image = .dataEmptyIcon
+    private var expanableImage: ImageView = {
+        let image = ImageView()
         image.isUserInteractionEnabled = true
         image.contentMode = .scaleAspectFit
         return image
     }()
     
-    init(image: UIImage) {
-        self.expanableImage.image = image
+    init(imageUrl: String) {
+        self.expanableImage.imageWithUrl(with: imageUrl)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,7 +60,9 @@ internal final class ExpanableViewController: UIViewController {
         
         view.addSubview(spacer)
         view.addSubview(mainScroll)
+        
         mainScroll.addSubview(expanableImage)
+        
         NSLayoutConstraint.activate([
             spacer.heightAnchor.constraint(equalToConstant: 5),
             spacer.widthAnchor.constraint(equalToConstant: 46),
@@ -84,6 +83,7 @@ internal final class ExpanableViewController: UIViewController {
             expanableImage.trailingAnchor.constraint(equalTo: mainScroll.trailingAnchor),
             expanableImage.widthAnchor.constraint(equalTo: mainScroll.widthAnchor)
         ])
+        view.layoutIfNeeded()
     }
     
     @objc func onDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
@@ -102,7 +102,6 @@ internal final class ExpanableViewController: UIViewController {
             mainScroll.setZoomScale(1.0, animated: true)
         }
     }
-    
 }
 
 extension ExpanableViewController: UIScrollViewDelegate {

@@ -36,10 +36,8 @@ internal final class ImageView: UIImageView {
         
         addSubview(loadingIndicator)
         NSLayoutConstraint.activate([
-            loadingIndicator.topAnchor.constraint(equalTo: topAnchor),
-            loadingIndicator.leadingAnchor.constraint(equalTo: leadingAnchor),
-            loadingIndicator.trailingAnchor.constraint(equalTo: trailingAnchor),
-            loadingIndicator.bottomAnchor.constraint(equalTo: bottomAnchor)
+            loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     

@@ -29,13 +29,15 @@ internal final class DetailMealsViewController: UIViewController {
     private let category = DescriptionComponent()
     private let ingredients = DescriptionComponent()
     private let instructions = DescriptionComponent()
+    private var stateView = StateView()
     
-    private var viewModel: DetailMealsViewModel
+    private var viewModel: DetailMealsViewModelType
     private var idMeal: String
+    private var urlThumb: String = ""
     private var cancellables = CancelBag()
     private var eventIdMeal = PassthroughSubject<String, Never>()
     
-    init(idMeal: String, viewModel: DetailMealsViewModel = DetailMealsViewModel()) {
+    init(idMeal: String, viewModel: DetailMealsViewModelType = DetailMealsViewModel()) {
         self.viewModel = viewModel
         self.idMeal = idMeal
         super.init(nibName: nil, bundle: nil)
@@ -49,7 +51,7 @@ internal final class DetailMealsViewController: UIViewController {
         super.viewDidLoad()
         
         setUiDetail()
-        bindViewModel()
+        bind(to: viewModel)
         
         eventIdMeal.send(idMeal)
     }
@@ -78,31 +80,66 @@ internal final class DetailMealsViewController: UIViewController {
         
         view.addSubview(mainScroll)
         
+        stateView.backgroundColor = .white
+        view.addSubview(stateView)
+        
         NSLayoutConstraint.activate([
             mealImage.heightAnchor.constraint(equalToConstant: view.frame.width/1.7),
             
             mainScroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mainScroll.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mainScroll.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            mainScroll.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            mainScroll.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            stateView.topAnchor.constraint(equalTo: mainScroll.topAnchor),
+            stateView.leadingAnchor.constraint(equalTo: mainScroll.leadingAnchor),
+            stateView.trailingAnchor.constraint(equalTo: mainScroll.trailingAnchor),
+            stateView.bottomAnchor.constraint(equalTo: mainScroll.bottomAnchor)
         ])
     }
     
-    private func bindViewModel() {
-        let input = DetailMealsViewModel.Input(idMeal: eventIdMeal.eraseToAnyPublisher())
-        let output = viewModel.transform(input, cancellables)
+    private func bind(to viewModel: DetailMealsViewModelType) {
+        stateView.showState(.loading) { }
         
-        output.$detailMeals.receive(on: DispatchQueue.main)
-            .sink{ [weak self] result in
-                guard let self = self else { return }
-                
-                if let data = result {
-                    bindData(data: data)
-                }
-            }.store(in: cancellables)
+        let input = DetailMealsViewModelInput(detailMeal: eventIdMeal.eraseToAnyPublisher())
+        let output = viewModel.transform(input: input)
+        
+        output.sink(receiveValue: {[unowned self] state in
+            self.render(state)
+        }).store(in: cancellables)
+    }
+    
+    private func render(_ state: DetailMealsState) {
+        stateView.isHidden = false
+        switch state {
+        case .idle:
+            stateView.showState(.result(title: "No data available.",
+                                        subtitle: "")) { }
+            bindData(data: DetailMeal())
+            break
+        case .loading:
+            stateView.showState(.loading) { }
+            bindData(data: DetailMeal())
+            break
+        case .noResults:
+            stateView.showState(.result(title: "No data available.",
+                                        subtitle: "")) { }
+            bindData(data: DetailMeal())
+            break
+        case .failure(let error):
+            stateView.showState(.result(title: "No data available.",
+                                        subtitle: error.localizedDescription)) { }
+            bindData(data: DetailMeal())
+            break
+        case .success(let meal):
+            stateView.isHidden = true
+            bindData(data: meal)
+            break
+        }
     }
     
     private func bindData(data: DetailMeal) {
+        urlThumb = data.mealThumb
         mealImage.imageWithUrl(with: data.mealThumb)
         titleLabel.text = data.nameMeal
         subTitleLabel.text = data.area
@@ -115,7 +152,7 @@ internal final class DetailMealsViewController: UIViewController {
     }
     
     @objc private func onTapImage(_ gestureRecognizer: UITapGestureRecognizer) {
-        let expandVC = ExpanableViewController(image: mealImage.image ?? .dataEmptyIcon)
+        let expandVC = ExpanableViewController(imageUrl: urlThumb)
         navigationController?.present(expandVC, animated: true)
     }
 }

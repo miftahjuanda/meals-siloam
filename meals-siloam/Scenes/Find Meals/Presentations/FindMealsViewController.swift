@@ -44,6 +44,7 @@ internal final class FindMealsViewController: UIViewController {
                                 forCellWithReuseIdentifier: ItemMealsCell.id)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -51,22 +52,19 @@ internal final class FindMealsViewController: UIViewController {
     private lazy var dataSource = UICollectionViewDiffableDataSource<String, Meal>(collectionView: mealsCollectionView) { [weak self] (collectionView, indexPath, value) -> UICollectionViewCell? in
         let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: ItemMealsCell.id,
                                                        for: indexPath) as? ItemMealsCell)!
-        cell.addTapGesture { [weak self] in
-            guard let self = self else { return }
-            let detailVC = DetailMealsViewController(idMeal: value.idMeal)
-            detailVC.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }
         cell.setData(value)
         return cell
     }
+    private var stateView = StateView()
     
     private var cancellables = CancelBag()
     private var searchMeals = PassthroughSubject<String, Never>()
+    private let selection = PassthroughSubject<String, Never>()
+    private let appear = PassthroughSubject<Void, Never>()
     private var isSearch = false
-    private var viewModel: FindMealsViewModel
+    private var viewModel: FindMealsViewModelType
     
-    init(viewModel: FindMealsViewModel = FindMealsViewModel()) {
+    init(viewModel: FindMealsViewModelType = FindMealsViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -79,7 +77,7 @@ internal final class FindMealsViewController: UIViewController {
         super.viewDidLoad()
         
         setUIFindMeals()
-        bindViewModel()
+        bind(to: viewModel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +102,7 @@ internal final class FindMealsViewController: UIViewController {
         view.addSubview(mainVStack)
         
         view.addSubview(mealsCollectionView)
+        view.addSubview(stateView)
         
         NSLayoutConstraint.activate([
             mainVStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
@@ -119,22 +118,54 @@ internal final class FindMealsViewController: UIViewController {
                                                          constant: 7),
             mealsCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                                                           constant: -7),
-            mealsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            mealsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            stateView.topAnchor.constraint(equalTo: mealsCollectionView.topAnchor),
+            stateView.leadingAnchor.constraint(equalTo: mealsCollectionView.leadingAnchor),
+            stateView.trailingAnchor.constraint(equalTo: mealsCollectionView.trailingAnchor),
+            stateView.bottomAnchor.constraint(equalTo: mealsCollectionView.bottomAnchor)
         ])
     }
     
-    private func bindViewModel() {
-        let input = FindMealsViewModel.Input(searchMeals: searchMeals.eraseToAnyPublisher())
-        let output = viewModel.transform(input, cancellables)
+    private func bind(to viewModel: FindMealsViewModelType) {
+        let input = FindMealsViewModelInput(appear: appear.eraseToAnyPublisher(),
+                                            searchMeals: searchMeals.eraseToAnyPublisher(),
+                                            selection: selection.eraseToAnyPublisher())
+        let output = viewModel.transform(input: input)
         
-        output.$resultMeals.receive(on: DispatchQueue.main)
-            .sink{ [weak self] result in
-                guard let self = self else { return }
-                
-                if !result.isEmpty {
-                    self.applySnapshot(items: result)
-                }
-            }.store(in: cancellables)
+        output.sink(receiveValue: {[unowned self] state in
+            self.render(state)
+        }).store(in: cancellables)
+    }
+    
+    private func render(_ state: FindMealsState) {
+        stateView.isHidden = false
+        view.endEditing(true)
+        switch state {
+        case .idle:
+            stateView.showState(.result(title: "No data available.",
+                                        subtitle: "")) { }
+            applySnapshot(items: [])
+            break
+        case .loading:
+            stateView.showState(.loading) { }
+            applySnapshot(items: [])
+            break
+        case .noResults:
+            stateView.showState(.result(title: "No data available.",
+                                        subtitle: "")) { }
+            applySnapshot(items: [])
+            break
+        case .failure(let error):
+            stateView.showState(.result(title: "No data available.",
+                                        subtitle: error.localizedDescription)) { }
+            applySnapshot(items: [])
+            break
+        case .success(let meals):
+            stateView.isHidden = true
+            applySnapshot(items: meals)
+            break
+        }
     }
     
     private func applySnapshot(items: [Meal], animatingDifferences: Bool = true) {
@@ -146,9 +177,22 @@ internal final class FindMealsViewController: UIViewController {
     }
 }
 
+extension FindMealsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let snapshot = dataSource.snapshot().itemIdentifiers[indexPath.row]
+        
+        let detailVC = DetailMealsViewController(idMeal: snapshot.idMeal)
+        detailVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
 extension FindMealsViewController: UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text {
+            stateView.showState(.loading) { }
+            applySnapshot(items: [])
+            
             searchMeals.send(searchText)
         }
     }

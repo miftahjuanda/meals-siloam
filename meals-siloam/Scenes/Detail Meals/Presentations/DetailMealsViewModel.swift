@@ -8,44 +8,37 @@
 import UIKit
 import Combine
 
-internal final class DetailMealsViewModel {
+internal final class DetailMealsViewModel: DetailMealsViewModelType {
     private let useCase: DetailMealsUseCaseProtocol
     
     init(useCase: DetailMealsUseCaseProtocol = DetailMealsUseCase()) {
         self.useCase = useCase
     }
     
-    internal struct Input {
-        let idMeal: AnyPublisher<String, Never>
-    }
-    
-    internal class Output: ObservableObject {
-        @Published var detailMeals: DetailMeal?
-        @Published var resultError: Error?
-    }
-    
-    func transform(_ input: Input, _ cancellables: CancelBag) -> Output {
-        let output = Output()
-        
-        input.idMeal
-            .receive(on: DispatchQueue.global())
-            .flatMap{ id in
-                self.useCase.detailMeals(idMeal: id)
+    func transform(input: DetailMealsViewModelInput) -> DetailMealsViewModelOutput {
+        let detailMeal = input.detailMeal
+            .filter({ !$0.isEmpty })
+            .flatMap{ idMeal in
+                self.useCase.detailMeals(idMeal: idMeal)
                     .map{ Result.success($0) }
                     .catch{ Just(Result.failure($0)) }
                     .eraseToAnyPublisher()
-            }.sink(receiveValue: { result in
+            }
+            .map({ result -> DetailMealsState in
                 switch result {
                 case .success(let meals):
-                    output.detailMeals = meals.meals.first
-                    break
-                case .failure(let err):
-                    output.resultError = err
-                    break
+                    if let meal = meals.meals.first {
+                        return .success(meal)
+                    } else {
+                        return .noResults
+                    }
+                case .failure(let error):
+                    return .failure(error)
                 }
-            }).store(in: cancellables)
+            })
+            .eraseToAnyPublisher()
         
-        return output
+        let initialState: DetailMealsViewModelOutput = .just(.loading)
+        return Publishers.Merge(initialState, detailMeal).removeDuplicates().eraseToAnyPublisher()
     }
-    
 }
