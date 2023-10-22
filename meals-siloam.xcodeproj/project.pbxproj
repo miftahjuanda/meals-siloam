@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B017CA762AE52D90006F914D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017CA752AE52D90006F914D /* ImageView.swift */; };
 		B07D6C062AE285C8009A13D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C052AE285C8009A13D1 /* AppDelegate.swift */; };
 		B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */; };
 		B07D6C0F2AE285CA009A13D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07D6C0E2AE285CA009A13D1 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		212A2692B7D25644895A1EDD /* Pods-meals-siloam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meals-siloam.debug.xcconfig"; path = "Target Support Files/Pods-meals-siloam/Pods-meals-siloam.debug.xcconfig"; sourceTree = "<group>"; };
 		278D0E6C5C9A864360570B33 /* Pods-meals-siloam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meals-siloam.release.xcconfig"; path = "Target Support Files/Pods-meals-siloam/Pods-meals-siloam.release.xcconfig"; sourceTree = "<group>"; };
 		893071904173776371998C9A /* Pods_meals_siloam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meals_siloam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B017CA752AE52D90006F914D /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		B07D6C022AE285C8009A13D1 /* meals-siloam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "meals-siloam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D6C052AE285C8009A13D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07D6C072AE285C8009A13D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				B07D6C2A2AE2902A009A13D1 /* MainLabel.swift */,
 				B07D6C2C2AE2996C009A13D1 /* StackView.swift */,
 				B07D6C392AE37012009A13D1 /* ScrollView.swift */,
+				B017CA752AE52D90006F914D /* ImageView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				B07D6C552AE3D23C009A13D1 /* FindMealsEntity.swift in Sources */,
 				B07D6C522AE3D002009A13D1 /* FindMealsRequest.swift in Sources */,
 				B0F13E8B2AE41F6600BA0F63 /* DetailMealsEntity.swift in Sources */,
+				B017CA762AE52D90006F914D /* ImageView.swift in Sources */,
 				B07D6C312AE29D66009A13D1 /* ItemMealsCell.swift in Sources */,
 				B07D6C382AE368EC009A13D1 /* DescriptionComponent.swift in Sources */,
 				B07D6C082AE285C8009A13D1 /* SceneDelegate.swift in Sources */,

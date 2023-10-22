@@ -6,19 +6,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 internal final class ItemMealsCell: UICollectionViewCell {
     static let id = "ItemMealsCell"
     
-    private let image: UIImageView = {
-        let img = UIImageView()
-        img.translatesAutoresizingMaskIntoConstraints = false
-        img.clipsToBounds = true
-        img.layer.cornerRadius = 8
-        img.contentMode = .scaleAspectFit
-        return img
-    }()
-    
+    private let image = ImageView()
     private let titlelabel = MainLabel(textColor: .abbeyColor,
                                        lines: 1,
                                        font: .systemFont(ofSize: 13,
@@ -39,7 +32,7 @@ internal final class ItemMealsCell: UICollectionViewCell {
     }
     
     func setData(_ data: Meal) {
-        image.image = .dataEmptyIcon
+        image.imageWithUrl(with: data.mealThumb)
         titlelabel.text = data.nameMeal
         subTitlelabel.text = data.area
     }
@@ -52,6 +45,7 @@ internal final class ItemMealsCell: UICollectionViewCell {
         
         titlelabel.lineBreakMode = .byWordWrapping
         subTitlelabel.lineBreakMode = .byWordWrapping
+        image.layer.cornerRadius = 8
         
         let mainStack = StackView {
             image
@@ -69,12 +63,17 @@ internal final class ItemMealsCell: UICollectionViewCell {
             mainStack.topAnchor.constraint(equalTo: contentView.topAnchor),
             mainStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             mainStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            mainStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            mainStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
         
         mainStack.setCustomSpacing(8, after: mainStack.subviews[0])
         mainStack.setCustomSpacing(1, after: mainStack.subviews[1])
         
         layoutIfNeeded()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        image.kf.cancelDownloadTask()
     }
 }

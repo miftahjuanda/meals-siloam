@@ -17,11 +17,9 @@ internal final class DetailMealsViewModel {
     
     internal struct Input {
         let idMeal: AnyPublisher<String, Never>
-        let image: AnyPublisher<String, Never>
     }
     
     internal class Output: ObservableObject {
-        @Published var image: UIImage?
         @Published var detailMeals: DetailMeal?
         @Published var resultError: Error?
     }
@@ -40,24 +38,6 @@ internal final class DetailMealsViewModel {
                 switch result {
                 case .success(let meals):
                     output.detailMeals = meals.meals.first
-                    break
-                case .failure(let err):
-                    output.resultError = err
-                    break
-                }
-            }).store(in: cancellables)
-        
-        input.image
-            .receive(on: DispatchQueue.global())
-            .flatMap{ url in
-                self.useCase.loadImage(url: url)
-                    .map{ Result.success($0) }
-                    .catch{ Just(Result.failure($0)) }
-                    .eraseToAnyPublisher()
-            }.sink(receiveValue: { result in
-                switch result {
-                case .success(let img):
-                    output.image = img
                     break
                 case .failure(let err):
                     output.resultError = err

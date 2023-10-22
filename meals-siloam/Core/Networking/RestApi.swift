@@ -44,16 +44,12 @@ extension RestApi {
         }
         
         guard let url = url,
-              var urlComp = URLComponents(
+              let urlComp = URLComponents(
                 url: url,
                 resolvingAgainstBaseURL: true)
         else { return URLRequest(url: URL(string: "")!) }
         
-        if let url = URL(string: baseURL)?.appendingPathComponent(path) {
-            
-        }
-        
-        var headers = self.headers ?? [:]
+        let headers = self.headers ?? [:]
         var urlReq = URLRequest(url: urlComp.url!)
         
         for (k, v) in headers {

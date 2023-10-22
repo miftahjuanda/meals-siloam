@@ -7,4 +7,5 @@ target 'meals-siloam' do
 
   # Pods for meals-siloam
   pod 'Alamofire'
+  pod 'Kingfisher'
 end
