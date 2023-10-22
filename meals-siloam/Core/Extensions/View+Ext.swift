@@ -6,22 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 extension UIView {
-    public func addTapGesture(action : @escaping ()->Void ){
-        let tap = TapGesture(target: self , action: #selector(self.handleTap(_:)))
-        tap.action = action
-        tap.numberOfTapsRequired = 1
+    func tapPublisher() -> AnyPublisher<Void, Never> {
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        addGestureRecognizer(tapGestureRecognizer)
+        isUserInteractionEnabled = true
         
-        self.addGestureRecognizer(tap)
-        self.isUserInteractionEnabled = true
+        return tapGestureRecognizer.publisher(for: \.state)
+            .compactMap { state in
+                state == .recognized ? () : nil
+            }
+            .eraseToAnyPublisher()
     }
-    
-    @objc func handleTap(_ sender: TapGesture) {
-        sender.action!()
-    }
-}
-
-internal final class TapGesture: UITapGestureRecognizer {
-    var action : (()->Void)? = nil
 }

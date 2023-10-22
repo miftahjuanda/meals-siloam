@@ -50,8 +50,16 @@ internal final class FindMealsViewController: UIViewController {
     }()
     
     private lazy var dataSource = UICollectionViewDiffableDataSource<String, Meal>(collectionView: mealsCollectionView) { [weak self] (collectionView, indexPath, value) -> UICollectionViewCell? in
+        guard let self = self else { return UICollectionViewCell() }
+        
         let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: ItemMealsCell.id,
                                                        for: indexPath) as? ItemMealsCell)!
+        cell.image.tapPublisher()
+            .sink { [weak self] _ in
+                let expandVC = ExpanableViewController(imageUrl: value.mealThumb)
+                self?.navigationController?.present(expandVC, animated: true)
+            }
+            .store(in: self.cancellables)
         cell.setData(value)
         return cell
     }

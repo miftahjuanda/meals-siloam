@@ -11,7 +11,7 @@ import Kingfisher
 internal final class ItemMealsCell: UICollectionViewCell {
     static let id = "ItemMealsCell"
     
-    private let image = ImageView()
+    let image = ImageView()
     private let titlelabel = MainLabel(textColor: .abbeyColor,
                                        lines: 1,
                                        font: .systemFont(ofSize: 13,
