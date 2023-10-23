@@ -2,7 +2,7 @@
 
 Below is the tech stack for this project:
 - Xcode 15
-- programmatically
+- Programmatically
 - Cocoapods
 - Combine
 - MVVM
